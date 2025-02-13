@@ -1,0 +1,62 @@
+import{f as le,a as ce,q as Y,n as L,j as e,L as p,o as Z,X as ie,p as S,v as ue,x as de,r as T}from"./index-Ba6YVotX.js";import{H as M}from"./Header-GcB7EjiI.js";import{af as J,x as pe,U as R,K as d,d as x,ag as $,n as U,ae as h,ah as ge,ai as ee,aj as te,ak as se,al as he,am as xe,u as A,Z as _e,an as je,N as B,O as w,I as me,ao as ye,ap as be,aq as I,ar as ve,as as D,at as Q,g as ke}from"./App-CM6DQiPl.js";const fe=le(`
+  query CollectorLogs {
+    log_collectors {
+        account_log_collectors {
+          _id
+          cloud_account_id
+          cloud_account_type
+          identity {
+            last_event_at
+            status
+            subscriptions {
+              subscription_id
+              last_event_at
+              status
+            }
+          }
+          network {
+            last_event_at
+            status
+             subscriptions {
+              subscription_id
+              last_event_at
+              status
+            }
+          }
+          cost {
+            last_event_at
+            status
+             subscriptions {
+              subscription_id
+              last_event_at
+              status
+            }
+          }
+          realtime {
+            regions {
+              region
+              last_event_at
+              status
+            }
+          }
+        }
+        kubernetes_log_collectors {
+          _id
+          eks_arn
+          aks_resource_id
+          gke_resource_id
+          cloud_account_id
+          cluster_type
+          collector {
+            last_event_at
+            status
+          }
+          audit {
+            last_event_at
+            status
+          }
+        }
+    }
+  }
+`),we=()=>{var c,l;const{data:s,...r}=ce(fe);return{data:{accounts:(c=s==null?void 0:s.log_collectors)==null?void 0:c.account_log_collectors,k8s:(l=s==null?void 0:s.log_collectors)==null?void 0:l.kubernetes_log_collectors},...r}},oe="Do MMMM HH:mm:ss",re=s=>{const r=ie(),c={[p.Active]:r.palette.common.green,[p.Stopped]:r.palette.common.red,[p.Inactive]:r.palette.common.gray};return s&&c[s]||r.palette.common.gray};function V({children:s,value:r,index:c}){return e.jsx(e.Fragment,{children:r===c&&e.jsx(pe,{p:3,overflow:"auto",children:s})})}const j=({status:s,timestamp:r})=>{const c=re(s);let l;switch(s){case p.Active:l=e.jsx(he,{fontSize:"small",style:{color:c}});break;case p.Stopped:l=e.jsx(se,{fontSize:"small",style:{color:c}});break;default:case p.Inactive:l=e.jsx(te,{fontSize:"small",style:{color:c}});break}return e.jsx(R,{disabled:!r,title:e.jsxs(d,{column:!0,children:[e.jsx(x,{children:"Last Received Timestamp:"}),e.jsx(x,{children:r&&Z(r).format(oe)})]}),placement:"left-start",children:e.jsx("div",{children:l})})},Se=({status:s})=>{const r=re(s),c=L(r,.1),l=16;let u;switch(s){case p.Active:u=e.jsx(xe,{fontSize:"small",style:{color:r,fontSize:l}});break;case p.Stopped:u=e.jsx(se,{fontSize:"small",style:{color:r,fontSize:l}});break;case p.Inactive:u=e.jsx(te,{fontSize:"small",style:{color:r,fontSize:l}});break}return e.jsxs(d,{gap:!0,row:!0,center:!0,round:!0,style:{backgroundColor:c,padding:"3px 6px",borderRadius:4},children:[u,e.jsx(x,{style:{color:r},children:S(s)})]})},X=Y($).withConfig({displayName:"LogCollectorsStyles__LogCollectorsTable",componentId:"sc-cdgrjt-0"})(({theme:s})=>({[J]:{borderBottom:`1px solid ${L(s.palette.text.primary,.1)}`,borderRadius:0,height:48,"&:hover":{backgroundColor:L(s.palette.dividerLight,.1)}}})),Ce=Y($).withConfig({displayName:"LogCollectorsStyles__StyledTable",componentId:"sc-cdgrjt-1"})(({theme:s})=>({[J]:{gap:s.spacing(1)}})),Ie=({regions:s})=>{var l;const r=s==null?void 0:s.length,c=(l=s==null?void 0:s.filter(u=>u.status===p.Active))==null?void 0:l.length;return e.jsx(R,{interactive:!0,placement:"right",arrow:!0,enterDelay:500,enterNextDelay:400,title:e.jsxs(d,{column:!0,children:[e.jsx(x,{children:"Real-Time Events:"}),e.jsx(U,{style:{marginTop:5}}),e.jsxs(Ce,{data:s,children:[e.jsx(h,{header:"Region:",render:u=>{var a;return(a=ge[u.region||""])==null?void 0:a.name}}),e.jsx(h,{header:"Status:",render:u=>e.jsx(d,{style:{width:90},children:e.jsx(Se,{status:u==null?void 0:u.status})})}),e.jsx(h,{header:"Last Received:",render:u=>Z(u.last_event_at).format(oe),grow:2})]}),e.jsx(U,{style:{marginBottom:5}}),e.jsx(x,{color:"textSecondary",children:"Stream considers a region 'stopped' when no real-time events have been detected in the past 24 hours."})]}),children:e.jsxs(d,{row:!0,gap:!0,center:!0,children:[e.jsx(j,{status:Number(c)>=1?p.Active:r?p.Stopped:p.Inactive}),r?`${c}/${r}`:"",r?e.jsx(ee,{style:{fontSize:12},color:"action"}):e.jsx(e.Fragment,{})]})})};var ae=(s=>(s.Audit="audit",s.Collector="collector",s))(ae||{});const Te=s=>{switch(s){case"accounts":return["identity","network","realtime"];case"k8s":return Object.values(ae);default:return[]}},b=(s,r)=>!(s!=null&&s.length)||(s==null?void 0:s.includes(r)),v=(s,r)=>r==null?void 0:r.includes(s==null?void 0:s.status),Ee=()=>{var K,W,O,F,P,N,z,G;const s=ue(),{data:r}=we(),c=de(),[l,u]=A("t","accounts"),[a,k]=A("f",{}),ne=_e();T.useEffect(()=>{k({})},[l,k]),T.useEffect(()=>{var t;(t=a.statuses)!=null&&t.length||k({...a,logType:null})},[a,k]);const[g,E]=A("s",{sort_by:"identity",sort_order:-1},{sort_order:Number}),_=T.useMemo(()=>{var t,n;return(n=(t=r[l])==null?void 0:t.filter(o=>{var i;return!((i=a.accounts)!=null&&i.length)||a.accounts.includes((o==null?void 0:o.cloud_account_id)||(o==null?void 0:o.eks_arn))}).filter(o=>{var i;return!((i=a.providers)!=null&&i.length)||a.providers.includes(o==null?void 0:o.cloud_account_type)}).filter(o=>{var i;return!((i=a.clusters)!=null&&i.length)||a.clusters.includes((o==null?void 0:o.eks_arn)||(o==null?void 0:o.aks_resource_id)||(o==null?void 0:o.gke_resource_id))}).filter(o=>{var i,m,f;return!((i=a.statuses)!=null&&i.length)||b(a.logType,"audit")&&v(o.audit,a.statuses)||b(a.logType,"collector")&&v(o.collector,a.statuses)||b(a.logType,"identity")&&v(o.identity,a.statuses)||b(a.logType,"network")&&v(o.network,a.statuses)||b(a.logType,"cost")&&v(o.cost,a.statuses)||b(a.logType,"realtime")&&((f=(m=o.realtime)==null?void 0:m.regions)==null?void 0:f.some(C=>v(C,a.statuses)))}))==null?void 0:n.toSorted((o,i)=>{var f,C,H,q;const m=(g==null?void 0:g.sort_by)||"";return((f=o[m])==null?void 0:f.status)<((C=i[m])==null?void 0:C.status)?1*((g==null?void 0:g.sort_order)??1):((H=o[m])==null?void 0:H.status)>((q=i[m])==null?void 0:q.status)?-1*((g==null?void 0:g.sort_order)??1):0})},[l,a,r,g]),y=({label:t,tooltip:n})=>e.jsxs(d,{row:!0,center:!0,gap:!0,children:[t,e.jsx(R,{title:n,placement:"top",children:e.jsx(ee,{style:{fontSize:12},color:"action"})})]});return e.jsxs(d,{column:!0,fullHeight:!0,children:[e.jsx(M,{Icon:je,title:"Settings",selector:e.jsx(d,{row:!0,gap:!0,space:!0,children:e.jsxs(B,{onChange:(t,n)=>{s.push(n)},value:c,children:[e.jsx(w,{value:"/integrations",label:"Integrations"}),ne&&e.jsx(w,{value:"/k8s",label:"K8s Integrations"}),e.jsx(w,{value:"/collection",label:"Log Collection Status"})]})}),actions:e.jsx(me,{onClick:()=>window.open("https://docs.streamsec.io/docs/logs-collection-status","_blank"),children:e.jsx(ye,{})})}),e.jsx(M,{selector:e.jsxs(d,{row:!0,gap:!0,grow:!0,center:!0,children:[e.jsxs(B,{onChange:(t,n)=>{u(n)},value:l,children:[e.jsx(w,{value:"accounts",label:`Cloud Accounts (${((K=r.accounts)==null?void 0:K.length)||0})`}),e.jsx(w,{value:"k8s",label:`Kubernetes Clusters (${((W=r.k8s)==null?void 0:W.length)||0})`})]}),e.jsx(d,{grow:!0}),e.jsxs(be,{direction:"row",filterValues:a,onChange:k,order:!1,sortChildren:!1,children:[l==="accounts"&&e.jsx(I,{attribute:"providers",displayName:(O=a.providers)!=null&&O.length?a.providers.map(t=>t==="GOOGLE_WORKSPACE"?"Google Workspace":t).join(", "):"All Provider Types",options:["AWS","Azure","GCP","GOOGLE_WORKSPACE"],renderOption:t=>{const n=t==="GOOGLE_WORKSPACE"?"Google Workspace":t;return e.jsx(d,{row:!0,gap:!0,children:e.jsx(x,{noWrap:!0,children:n})})}}),e.jsx(ve,{attribute:"accounts",displayName:"Accounts",editInPopover:!0}),e.jsx(I,{attribute:"statuses",displayName:(F=a.statuses)!=null&&F.length?a.statuses.map(S).join(", "):"All Log Statuses",options:[p.Active,p.Stopped,p.Inactive],renderOption:t=>e.jsxs(d,{row:!0,gap:!0,children:[e.jsx(j,{status:t}),e.jsx(x,{noWrap:!0,children:S(t)})]})}),e.jsx(I,{attribute:"logType",displayName:(P=a.logType)!=null&&P.length?a.logType.map(S).join(", "):"All Log Types",tooltip:(N=a.statuses)!=null&&N.length?"":"Filter by type with status",options:Te(l),disabled:!((z=a.statuses)!=null&&z.length),renderOption:t=>e.jsx(d,{row:!0,gap:!0,children:e.jsx(x,{noWrap:!0,children:S(t)})})}),l==="k8s"&&e.jsx(I,{attribute:"clusters",displayName:"Clusters",options:(G=r.k8s)==null?void 0:G.map(t=>(t==null?void 0:t.eks_arn)||(t==null?void 0:t.aks_resource_id)||(t==null?void 0:t.gke_resource_id)),renderOption:t=>e.jsx(D,{id:t})})]})]})}),e.jsx(V,{value:l,index:"accounts",children:e.jsx(d,{column:!0,paper:!0,gap:!0,round:!0,children:e.jsxs(X,{data:_,sortOptions:g,onSortChange:E,children:[e.jsx(h,{header:`Showing (${_==null?void 0:_.length}) Cloud Accounts Logs`,render:t=>e.jsx(Q,{id:t.cloud_account_id}),grow:2}),e.jsx(h,{header:e.jsx(y,{label:"Identity Logs",tooltip:`Uses your cloud provider's audit logs to track machine and human identity actions in your environment. These logs are required for continuous anomaly and threat detection alerts, investigation, and response.
+`}),render:t=>{var n,o;return e.jsx(j,{timestamp:(n=t.identity)==null?void 0:n.last_event_at,status:(o=t.identity)==null?void 0:o.status})},sortKey:"identity"}),e.jsx(h,{header:e.jsx(y,{label:"Network Logs",tooltip:"Uses your cloud provider's network-level logs to track IP traffic within your cloud environment. These logs are required for continuous network traffic anomaly and threat detections, investigation, and response."}),render:t=>{var n,o;return e.jsx(j,{status:(n=t.network)==null?void 0:n.status,timestamp:(o=t.network)==null?void 0:o.last_event_at})},sortKey:"network"}),e.jsx(h,{style:{maxWidth:150},header:e.jsx(y,{label:"Real-Time Events",tooltip:"Uses your cloud provider's audit logs, forwarded immediately when triggered, to track changes in your cloud environment. These logs are required to provide alerts on cloud configuration issues and security incidents."}),render:t=>{var n,o,i;return e.jsxs(e.Fragment,{children:[(t.cloud_account_type==="Azure"||t.cloud_account_type==="GCP"||t.cloud_account_type==="GOOGLE_WORKSPACE")&&e.jsx(j,{status:(n=t.identity)==null?void 0:n.status,timestamp:(o=t==null?void 0:t.identity)==null?void 0:o.last_event_at}),t.cloud_account_type==="AWS"&&e.jsx(Ie,{regions:(i=t.realtime)==null?void 0:i.regions})]})}}),e.jsx(h,{hidden:!0,header:e.jsx(y,{label:"Cloud Cost",tooltip:"Uses your cloud provider's cost reports to give visibility into service and resource expenses. These logs are also required to generate alerts on anomalous cost spikes."}),render:t=>{var n,o;return e.jsx(j,{status:(n=t.cost)==null?void 0:n.status,timestamp:(o=t.cost)==null?void 0:o.last_event_at})},sortKey:"cost"})]})})}),e.jsx(V,{value:l,index:"k8s",children:e.jsx(d,{column:!0,paper:!0,gap:!0,round:!0,children:e.jsxs(X,{data:_,sortOptions:g,onSortChange:E,children:[e.jsx(h,{header:`Showing (${_==null?void 0:_.length}) Kubernetes Clusters Logs`,render:t=>e.jsx(D,{id:t.eks_arn||t.aks_resource_id||(t==null?void 0:t.gke_resource_id),showType:!0,iconSize:"medium"}),grow:1}),e.jsx(h,{render:t=>e.jsxs(d,{row:!0,gap:!0,children:[e.jsx(Q,{id:t.cloud_account_id}),e.jsx(ke,{children:e.jsxs(x,{color:"textSecondary",noWrap:!0,style:{maxWidth:200},children:["(",t.cloud_account_id,")"]})})]})}),e.jsx(h,{header:e.jsx(y,{label:"Collector",tooltip:"Deploying Stream collector in your Kubernetes cluster allows you to gain context on Kubernetes resources and provides alerts and detections on workloads. It also includes a data collector for Kubernetes cost."}),render:t=>{var n,o;return e.jsx(j,{status:(n=t.collector)==null?void 0:n.status,timestamp:(o=t.collector)==null?void 0:o.last_event_at})},sortKey:"collector"}),e.jsx(h,{header:e.jsx(y,{label:"Audit Logs",tooltip:"Uses Kubernetes cluster audit logs sent from your cloud provider to gain visibility into Kubernetes API activity. These logs are used for threat detection, monitoring, investigation, and response."}),render:t=>{var n,o;return e.jsx(j,{status:(n=t.audit)==null?void 0:n.status,timestamp:(o=t.audit)==null?void 0:o.last_event_at})},sortKey:"audit"})]})})})]})};export{Ee as default};
