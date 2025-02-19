@@ -1,0 +1,1 @@
+import{h as o,j as t,i as h}from"./index-BgJRjf8M.js";function r({ListComponent:a,DetailsComponent:i,detailsPath:n="/:id"}){const{path:c}=o(),e=`${c}${n}`,s=o(e);return t.jsxs(t.Fragment,{children:[t.jsx(h,{path:e,component:i}),t.jsx("div",{style:{height:"100%",display:s?"none":"block"},children:t.jsx(a,{disabled:!!s})})]})}export{r as R};
