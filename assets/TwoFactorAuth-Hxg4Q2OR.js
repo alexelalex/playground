@@ -1,1 +1,0 @@
-import{e as r,j as t}from"./index-CDz6_-F0.js";import{H as o,W as n,J as i}from"./App-c61S4xKC.js";const u=()=>{const{session:s,onLogout:e}=r(),a=o[s.two_factor_state]||o.default;return t.jsx(n,{children:t.jsx(i,{closeDialog:e,stepsInfo:a,dialogOpen:!0,disableBackdropClick:!0})})};export{u as default};
